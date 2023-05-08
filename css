@@ -1,0 +1,35 @@
+.calendar-container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#calendar {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#calendar td, #calendar th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#calendar th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #f2f2f2;
+  color: #444;
+}
+
+#calendar td {
+  vertical-align: top;
+}
+
+#calendar td.current-day {
+  background-color: #ffcccb;
+}
+
+#calendar td.events {
+  background-color: #e0ffff;
+}
