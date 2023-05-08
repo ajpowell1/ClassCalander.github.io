@@ -16,6 +16,7 @@ function displaySchedule() {
     var calendarTable = document.getElementById("calendar");
 
     // Create the header row with the days of the week
+    var headerRow = calendarTable.insertRow();
     headerRow.style.backgroundColor = "#ddd";
     var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     for (var i = 0; i < daysOfWeek.length; i++) {
