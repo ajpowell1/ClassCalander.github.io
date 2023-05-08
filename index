@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<div class="calendar-container">
-  <h2>Class Schedule</h2>
-  <div id="calendar"></div>
-</div>
-
 <html>
 <head>
 	<title>Gender and Race Issues Class Calendar</title>
@@ -63,4 +58,25 @@
 				var dateCell = dateRow.insertCell();
 				dateCell.innerHTML = dateStr;
 
-				
+				// Add the schedule items to the row
+				if (scheduleItems) {
+				for (var j = 0; j < scheduleItems.length; j++) {
+				var scheduleItem = scheduleItems[j];
+				var itemCell = dateRow.insertCell();
+				itemCell.innerHTML = scheduleItem;
+				}
+				}
+				else {
+				var noClassCell = dateRow.insertCell();
+				noClassCell.innerHTML = "No Class";
+				}
+				}
+				}
+				</script>
+				</head>
+				<body onload="displaySchedule()">
+				<h1>Gender and Race Issues Class Calendar</h1>
+				<table id="calendar">
+				</table>
+				</body>
+				</html>
