@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-
-<script src="script.js"></script>
-
+<body>
 	<title>Gender and Race Issues Class Calendar</title>
 	<style>
 		table {
@@ -42,49 +40,48 @@
 
 		// Function to display the class schedule in a table
 		function displaySchedule() {
-    var calendarTable = document.getElementById("calendar");
+            var calendarTable = document.getElementById("calendar");
 
-    // Create the header row with the days of the week
-    var headerRow = calendarTable.insertRow();
-    headerRow.style.backgroundColor = "#ddd";
-    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    for (var i = 0; i < daysOfWeek.length; i++) {
-        var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = daysOfWeek[i];
-    }
-
-    // Get the start and end dates for the class
-    var startDate = new Date("May 8, 2023");
-    var endDate = new Date("June 2, 2023");
-
-    // Loop through each day and add it to the table
-    for (var date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
-        var dateStr = date.toDateString();
-        var scheduleItems = classSchedule[dateStr];
-
-        // Create a new row for the current date
-        var dateRow = calendarTable.insertRow();
-        dateRow.style.backgroundColor = "#eee";
-        var dateCell = dateRow.insertCell();
-        dateCell.innerHTML = dateStr;
-
-        // Add the schedule items to the row
-        if (scheduleItems) {
-            var scheduleCell = dateRow.insertCell();
-            var ul = document.createElement("ul");
-            for (var j = 0; j < scheduleItems.length; j++) {
-                var li = document.createElement("li");
-                li.innerHTML = scheduleItems[j];
-                ul.appendChild(li);
+            // Create the header row with the days of the week
+            var headerRow = calendarTable.insertRow();
+            headerRow.style.backgroundColor = "#ddd";
+            var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            for (var i = 0; i < daysOfWeek.length; i++) {
+                var headerCell = headerRow.insertCell();
+                headerCell.innerHTML = daysOfWeek[i];
             }
-            scheduleCell.appendChild(ul);
-        } else {
-            var scheduleCell = dateRow.insertCell();
-            scheduleCell.innerHTML = "";
-        }
-    }
-}
 
-				</table>
-				</body>
-				</html>
+            // Get the start and end dates for the class
+            var startDate = new Date("May 8, 2023");
+            var endDate = new Date("June 2, 2023");
+
+            // Loop through each day and add it to the table
+            for (var date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
+                var dateStr = date.toDateString();
+                var scheduleItems = classSchedule[dateStr];
+
+                // Create a new row for the current date
+                var dateRow = calendarTable.insertRow();
+                dateRow.style.backgroundColor = "#eee";
+                var dateCell = dateRow.insertCell();
+                dateCell.innerHTML = dateStr;
+
+                // Add the schedule items to the row
+                if (scheduleItems) {
+                    var scheduleCell = dateRow.insertCell();
+                    var ul = document.createElement("ul");
+                    for (var j = 0; j < scheduleItems.length; j++) {
+                        var li = document.createElement("li");
+                        li.innerHTML = scheduleItems[j];
+                        ul.appendChild(li);
+                    }
+                    scheduleCell.appendChild(ul);
+                } else {
+                    var scheduleCell = dateRow.insertCell();
+                    scheduleCell.innerHTML = "";
+                }
+            }
+        }
+        </script>
+</body>
+</html>
