@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gender and Race Issues Class Calendar</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			border: 1px solid black;
+			padding: 10px;
+		}
+		th {
+			border: 1px solid black;
+			padding: 10px;
+			background-color: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<h1>Gender and Race Issues Class Calendar</h1>
+	<table id="calendar">
+	</table>
+	<script>
+		// Define the class schedule and display it in a table
+		var classSchedule = { ... }; // paste the class schedule object here
+		function displaySchedule() { ... }; // paste the displaySchedule() function here
+		displaySchedule();
+	</script>
+</body>
+</html>
