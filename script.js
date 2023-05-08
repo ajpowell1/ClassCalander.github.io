@@ -1,51 +1,58 @@
-// Define the class schedule as an object
-var classSchedule = {
-    "May 8th": ["Introductions", "Fill in the calendar, profile picture, and participate in a current events discussion"],
-    "May 11th": ["Syllabus Quiz"],
-    "May 12th": ["Library Quiz"],
-    "May 15th": ["Snowy Day DB", "Yo Yes DB", "CCBC and publisher data", "McNair article on Scholastic", "Young Dreamers article (Myers)", "Winkler article", "Woodson NYT article"],
-    "May 19th": ["Bronx Response", "Bronx Quiz", "Cornrows DB", "Bronx Masquerade", "Banks article ('An Introduction...')", "10 Quick Ways article", "McIntosh article", "Grace Lin Ted Talk", "Bishop articles ('Reflections...')"],
-    "May 24th": ["Global literature DB", "Addams Book Project", "Articles and notes on Asian-American Literature and Latino Literature", "Native American Literature Websites", "Selected Jane Addams book"],
-    "May 30th": ["Frankie Quiz", "Frankie Response", "Disreputable History of Frankie Landau-Banks", "Selected Bloomer/RISE Book", "Rubinstein-Avila article", "Hamilton article", "Heine chart"],
-    "June 1st": ["Picture Book Essay Prep", "Final Exam", "Nino Wrestles the World", "Locomotive", "Blog posts on Nino and Locomotive", "McNair article on Classics", "Aronson and Pin"],
-    "June 2nd": ["Final Quiz & Essay"]
-};
+// Define the class schedule
+var classSchedule = [
+  {
+    date: "2023-05-01",
+    time: "10:00 AM",
+    topic: "Introduction to Gender and Race Issues"
+  },
+  {
+    date: "2023-05-03",
+    time: "10:00 AM",
+    topic: "Gender Identity"
+  },
+  {
+    date: "2023-05-05",
+    time: "10:00 AM",
+    topic: "Racial Identity"
+  },
+  {
+    date: "2023-05-08",
+    time: "10:00 AM",
+    topic: "Gender and Race in the Media"
+  },
+  {
+    date: "2023-05-10",
+    time: "10:00 AM",
+    topic: "Gender and Race in Education"
+  },
+  {
+    date: "2023-05-12",
+    time: "10:00 AM",
+    topic: "Gender and Race in Politics"
+  }
+];
 
-// Function to display the class schedule in a table
+// Display the class schedule in a table
 function displaySchedule() {
-    var calendarTable = document.getElementById("calendar");
+  var calendar = document.getElementById("calendar");
 
-    // Create the header row with the days of the week
-    var headerRow = calendarTable.insertRow();
-    headerRow.style.backgroundColor = "#ddd";
-    var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    for (var i = 0; i < daysOfWeek.length; i++) {
-        var headerCell = headerRow.insertCell();
-        headerCell.innerHTML = daysOfWeek[i];
-    }
+  // Create table header row
+  var headerRow = document.createElement("tr");
+  var dateHeader = document.createElement("th");
+  var timeHeader = document.createElement("th");
+  var topicHeader = document.createElement("th");
+  dateHeader.innerText = "Date";
+  timeHeader.innerText = "Time";
+  topicHeader.innerText = "Topic";
+  headerRow.appendChild(dateHeader);
+  headerRow.appendChild(timeHeader);
+  headerRow.appendChild(topicHeader);
+  calendar.appendChild(headerRow);
 
-    // Get the start and end dates for the class
-    var startDate = new Date("May 8, 2023");
-    var endDate = new Date("June 2, 2023");
-
-    // Loop through each day and add it to the table
-    for (var date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
-        var dateStr = date.toDateString();
-        var scheduleItems = classSchedule[dateStr];
-
-        // Create a new row for the current date
-        var dateRow = calendarTable.insertRow();
-        dateRow.style.backgroundColor = "#eee";
-        var dateCell = dateRow.insertCell();
-        dateCell.innerHTML = dateStr;
-
-        // Add the schedule items to the row
-        if (scheduleItems) {
-            var scheduleCell = dateRow.insertCell();
-            scheduleCell.innerHTML = scheduleItems.join("<br>");
-        }
-    }
-}
-
-// Call the displaySchedule function when the page loads
-window.onload = displaySchedule;
+  // Create table rows for each class
+  for (var i = 0; i < classSchedule.length; i++) {
+    var classRow = document.createElement("tr");
+    var dateCell = document.createElement("td");
+    var timeCell = document.createElement("td");
+    var topicCell = document.createElement("td");
+    dateCell.innerText = classSchedule[i].date;
